@@ -1,12 +1,5 @@
 \chapter{Categorías y cuotas de afiliación}
 
-% Acá va el caso de estudio (la gestión de afiliados de DOSPU) 
-% del cual se desprenden los requerimientos de expresividad para el motor de reglas
-
-% En esta sección explicamos que los docentes y no docentes universitarios acceden a DOSPU por trabajar en la UNSL, pero que exiten otras formas de ingresar a la obra social. Es por esto que existen distintos tipos de afiliación y en los casos en que no están activos y se descuente por haberes, se debe calcular y cobrar su cuota, habiendo múltiples parámetros y reglas para esto. 
-% En esta sección deben quedar en claro las categorías básicas de afiliados y que el cálculo de la cuota es complejo.
-% Para el resto del capítulo basarse en el documento "DOSPU Afiliaciones y Cuotas" en google drive.
-
 \section{Introducción}
 Según lo establecido en \cite{dospuOrd53}, además del personal docente y no docente de la \acrfull{unsl}, otras personas que cumplan con las condiciones dictadas también pueden afiliarse a \acrshort{dospu}.
 
@@ -38,6 +31,8 @@ Monto de la cuota (\cite{dospuRes21} art. 2 y Anexo I): $$0.02 * j_m + 0.05 * j_
     \item $j_h = \text{haber jubilatorio}$
 \end{itemize}
 
+En caso de que dos voluntarios jubilados se tengan vínculo de cónyuge o conviviente, se aplica un descuento del 30\% a la cuota del afiliado (cálculada con la fórmula expuesta para esta subcategoría) con menor haber percibido, quedando como 70\% del monto calculado.
+
 \section{Familiar} \label{sec:familiar}
 \begin{displayquote}
 \emph{No aportantes o eximidos de aportes}: El cónyuge, los hijos hasta la mayoría de edad establecida por el Código Civil vigente en la República Argentina, o que cursen estudios regulares hasta los 26 años y aquellas personas que pertenezcan al grupo de familiares primarios y están eximidos de aportar por disposición estatutaria o por Resolución de Directorio. No rige límite de edad para aquellos hijos discapacitados mientras dure su incapacidad.
@@ -50,8 +45,6 @@ Familiares primarios de los titulares.
 \end{displayquote}
 
 Distinto es el caso para cónyuges y convivientes de voluntarios jubilados, cuya cuota es un 70 \% de la del afiliado titular (\cite{dospuRes21} art. 2 y Anexo I).
-
-% TODO: descuento en el caso de que ambos conyuges sean titulares.
 
 \section{Voluntario adherente} \label{sec:adherente}
 \begin{displayquote}
@@ -72,8 +65,6 @@ Según \cite{dospuRes21} art. 3, la cuota de las subcategorías:
     \item agentes vinculados a \acrshort{dospu}
 \end{itemize}
 será un porcentaje sobre el \acrshort{cmmu}. Los porcentajes se encuentran en el Anexo II de la referencia mencionada.
-
-% TODO: explicación de los códigos de descuento (PPS)
 
 \subsection{Subcategoría: Pensionado}
 Monto de la cuota (\cite{dospuRes21} art. 2 y Anexo I): $$0.02 * j_m + 0.05 * p$$
@@ -97,6 +88,9 @@ El monto a abonar por los afiliados pertenecientes a esta subcategoría depende 
     \item En caso de tener dicho aporte se toma un 150\% de la \acrshort{cmmu}
     \item En caso contrario se toma un 200\% de la \acrshort{cmmu}.
 \end{itemize}
+
+\section{Aportes y seguros adicionales}
+Adicionalmente, dependiendo de la categoría y subcategoría del afiliado, el monto de la cuota pued incluir aportes a \acrfull{fesac} y \acrfull{sumas}, así como un seguro en caso de fallecimiento (\cite{dospuRes31}, \cite{dospuRes43} y \cite{dospuRes71}).
 
 \section{Modifcadores de afiliación}
 \begin{displayquote}
