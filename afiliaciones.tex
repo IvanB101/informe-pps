@@ -1,0 +1,119 @@
+\chapter{Categorías y cuotas de afiliación}
+
+% Acá va el caso de estudio (la gestión de afiliados de DOSPU) 
+% del cual se desprenden los requerimientos de expresividad para el motor de reglas
+
+% En esta sección explicamos que los docentes y no docentes universitarios acceden a DOSPU por trabajar en la UNSL, pero que exiten otras formas de ingresar a la obra social. Es por esto que existen distintos tipos de afiliación y en los casos en que no están activos y se descuente por haberes, se debe calcular y cobrar su cuota, habiendo múltiples parámetros y reglas para esto. 
+% En esta sección deben quedar en claro las categorías básicas de afiliados y que el cálculo de la cuota es complejo.
+% Para el resto del capítulo basarse en el documento "DOSPU Afiliaciones y Cuotas" en google drive.
+
+\section{Introducción}
+Según lo establecido en \cite{dospuOrd53}, además del personal docente y no docente de la \acrfull{unsl}, otras personas que cumplan con las condiciones dictadas también pueden afiliarse a \acrshort{dospu}.
+
+A raíz de esto, los afiliados se encuentran dividos en las categorías titular (\cref{sec:titular}), familiar (\cref{sec:familiar}) y voluntario adherente (\cref{sec:adherente}). Asimismo cada categoría está dividida en subcategorías, cada una utilizando distintas fórmulas o coeficientes en las mismas para el cálculo del aporte del afiliado.
+
+\section{Titular} \label{sec:titular}
+
+\subsection{Subcategoria: Obligatorio activo}
+\begin{displayquote}
+Agentes que se encuentren en actividad.
+\hfill\parencite{dospuOrd53}, art. 24.1.A.
+\end{displayquote}
+
+Actualmente, este descuento no es cálculado por el \acrshort{si}, con lo cual está fuera del alcance de este trabajo.
+
+\subsection{Subcategoria: Voluntario jubilado}
+\begin{displayquote}
+Agentes que al momento de pasar al régimen pasivo, eran afiliados obligatorios activos y
+que opten voluntariamente, mediante formal solicitud por continuar perteneciendo sin
+interrupción de aportes a esta Obra Social. La solicitud de afiliación debe ser solicitada en
+un término no mayor de sesenta (60) días corridos a partir del cese de sus actividades. \hfill\parencite{dospuOrd53}, art. 24.1.B. 
+\end{displayquote}
+
+Monto de la cuota (\cite{dospuRes21} art. 2 y Anexo I): $$0.02 * j_m + 0.05 * j_h$$
+
+, donde:
+\begin{itemize}
+    \item $j_m = \text{jubilación mínima}$
+    \item $j_h = \text{haber jubilatorio}$
+\end{itemize}
+
+\section{Familiar} \label{sec:familiar}
+\begin{displayquote}
+\emph{No aportantes o eximidos de aportes}: El cónyuge, los hijos hasta la mayoría de edad establecida por el Código Civil vigente en la República Argentina, o que cursen estudios regulares hasta los 26 años y aquellas personas que pertenezcan al grupo de familiares primarios y están eximidos de aportar por disposición estatutaria o por Resolución de Directorio. No rige límite de edad para aquellos hijos discapacitados mientras dure su incapacidad.
+\hfill\parencite{dospuOrd53}, art. 23.c.
+\end{displayquote}
+
+\begin{displayquote}
+Familiares primarios de los titulares.
+\hfill\parencite{dospuOrd53} art. 24.2.
+\end{displayquote}
+
+Distinto es el caso para cónyuges y convivientes de voluntarios jubilados, cuya cuota es un 70 \% de la del afiliado titular (\cite{dospuRes21} art. 2 y Anexo I).
+
+% TODO: descuento en el caso de que ambos conyuges sean titulares.
+
+\section{Voluntario adherente} \label{sec:adherente}
+\begin{displayquote}
+Son aquellos afiliados voluntarios que reúnen los requisitos establecidos en esta Carta Orgánica para ser incorporados a la Obra Social, siendo el Directorio de D.O.S.P.U. quien tiene a su cargo el dictado de las normas de afiliación, pagos de aportes y prestación de servicios correspondiente a cada categoría descrita en esta Carta Orgánica. En todos los casos y para concluir el trámite de afiliación en esta categoría, será requisito la presentación de garantía suficiente en resguardo del pago del aporte correspondiente. Además el Directorio de D.O.S.P.U. reglamentará un cálculo del aporte correspondiente por categoría con valores diferenciados por enfermedades preexistentes o edad avanzada.
+\hfill\parencite{dospuOrd53} art. 24.3
+\end{displayquote}
+
+La \acrfull{cmmu} se define en el 6 \% del sueldo total bruto de un Profesor Universitario Titular Exclusivo con Máxima Antigüedad (\cite{dospuRes21} art. 3).
+
+Según \cite{dospuRes21} art. 3, la cuota de las subcategorías:
+\begin{itemize}
+    \item becarios y personal ad honorem de la unsl
+    \item ascendientes en primer grado del afiliado titular
+    \item hijos que hayan dejado de reunir las condiciones de no aportantes
+    \item familiares adherentes
+    \item universitarios adherentes
+    \item ex-afiliados a \acrshort{dospu} 
+    \item agentes vinculados a \acrshort{dospu}
+\end{itemize}
+será un porcentaje sobre el \acrshort{cmmu}. Los porcentajes se encuentran en el Anexo II de la referencia mencionada.
+
+% TODO: explicación de los códigos de descuento (PPS)
+
+\subsection{Subcategoría: Pensionado}
+Monto de la cuota (\cite{dospuRes21} art. 2 y Anexo I): $$0.02 * j_m + 0.05 * p$$
+
+, donde:
+\begin{itemize}
+    \item $j_m = \text{jubilación mínima}$
+    \item $p = \text{pensión}$
+\end{itemize}
+
+\subsection{Subcategoría: Agente UNSL con licencia}
+El monto de la cuota a abonar por los afiliados de esta categoría es equivalente al monto de los aportes y contribuciones 9\% del sueldo bruto que percibiría como si estuviera en actividad. Asimismo, este monto no puede ser inferior al valor de referencia (CMMU) fijado en \cite{dospuRes21} art. 3 (\cite{dospuRes21} art. 4).
+
+\subsection{Subcategoría: Ascendiente en primer grado}
+Para un afiliado de esta categoría con más de diez (10) años de antigüedad en DOSPU, se utiliza como valor de referencia \acrshort{cmmu}20, equivalente a 6\% de un Profesor Universitario Titular Exclusivo con una Antigüedad correspondiente veinte años, en lugar de la \acrshort{cmmu}\cite{dospuRes60}.
+Adicionalemente, para afiliados mayores a 66 años de edad, se toma el 150\% en lugar de 200\% del valor de referencia, siendo este último el utilizado para los ascendientes en primer grado sin la antigüedad requerida.
+
+\subsection{Subcategoría: Adherentes de edad avanzada}
+El monto a abonar por los afiliados pertenecientes a esta subcategoría depende de si el afiliado tiene 25 o más años de aporte de \acrfull{decom} (\cite{dospuRes7} art. 1.d.):
+\begin{itemize}
+    \item En caso de tener dicho aporte se toma un 150\% de la \acrshort{cmmu}
+    \item En caso contrario se toma un 200\% de la \acrshort{cmmu}.
+\end{itemize}
+
+\section{Modifcadores de afiliación}
+\begin{displayquote}
+Establecer distintas categorías de Afiliados Voluntarios Adherentes a los efectos de fijar una cuota mensual diferenciada que deben abonar a la Obra Social \emph{aquellos afiliados que al ingresar}, lo hagan con enfermedades preexistentes o que excedan la edad de 65 años. 
+\hfill\parencite{dospuRes7} art. 1.
+\end{displayquote}
+
+El modificador se aplica sobre el monto de la cuota calculada, y depende del carácter de la enferdad del afiliado:
+
+\begin{table}[H]
+    \centering
+\begin{tabular}{|c|c|}
+    \hline
+    Carácter de la enfermedad & Modificador \\ \hline
+    Temporario & 2 \\ \hline
+    Crónico & 3 \\ \hline
+    De mayor complejidad & 2 \\ \hline
+\end{tabular}
+\end{table}
+

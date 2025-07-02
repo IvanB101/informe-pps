@@ -1,0 +1,35 @@
+\makeatletter\@ifundefined{tablewidth}{\newlength{\tablewidth}}{}
+\makeatother\setlength{\tablewidth}{\dimexpr \textwidth - 3\arrayrulewidth - 6\tabcolsep \relax}
+\setlength{\extrarowheight}{-5pt}
+
+\begin{tabular}{|p{0.21\tablewidth}|p{0.27\tablewidth}|p{0.51\tablewidth}|}
+		\hline
+		\multicolumn{3}{|C{{\dimexpr 1.0\tablewidth + 2\arrayrulewidth + 4\tabcolsep \relax}}|}{\color[HTML]{FFFFFF}\cellcolor[HTML]{000000}Rules Double CalcularCuota(AfiliacionWrapper afiliado)} \\ \hline
+		\color[HTML]{000000}\cellcolor[HTML]{CCFFFF}C1
+		 & \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}C2
+		 & \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}RET1                                                                                                                                         \\ \hline
+		\color[HTML]{000000}\cellcolor[HTML]{CCFFFF}categoria
+		 & \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}subcategoria
+		 & \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}value                                                                                                                                        \\ \hline
+		\cellcolor[HTML]{CCFFFF}
+		 & \cellcolor[HTML]{CCFFFF}
+		 & \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}Double value                                                                                                                                 \\ \hline
+		\color[HTML]{000000}\cellcolor[HTML]{FFFF99}Categoria
+		 & \color[HTML]{000000}\cellcolor[HTML]{FFFF99}Sub Categoria
+		 & \color[HTML]{000000}\cellcolor[HTML]{FFCC99}Fee Value                                                                                                                                    \\ \hline
+		\cellcolor[HTML]{FFFF99}
+		 & \color[HTML]{000000}\cellcolor[HTML]{FFFF99}CONYUGE
+		 & \color[HTML]{000000}\cellcolor[HTML]{FFCC99}=CalcularCuota(conyuge) * 0.7\strut                                                                                                          \\\cline{2-3} \noalign{\vskip 0.5pt}
+		\multirow{-2}{0.21\tablewidth}{\color[HTML]{000000}\cellcolor[HTML]{FFFF99}FAMILIAR}
+		 & \color[HTML]{000000}\cellcolor[HTML]{FFFF99}DESCENDIENTE\allowbreak\_PRIMER\allowbreak\_GRADO
+		 & \color[HTML]{000000}\cellcolor[HTML]{FFCC99}0                                                                                                                                            \\ \hline
+		\cellcolor[HTML]{FFFF99}
+		 & \color[HTML]{000000}\cellcolor[HTML]{FFFF99}BECARIO
+		 & \color[HTML]{000000}\cellcolor[HTML]{FFCC99}=CMMU * ModificadorBecario(afiliado)\strut                                                                                                   \\\cline{2-3} \noalign{\vskip 0.5pt}
+		\multirow{-2}{0.21\tablewidth}{\color[HTML]{000000}\cellcolor[HTML]{FFFF99}VOLUNTARIO\allowbreak\_ADHERENTE}
+		 & \color[HTML]{000000}\cellcolor[HTML]{FFFF99}AGENTE\allowbreak\_UNSL\allowbreak\_CON\allowbreak\_LICENCIA
+		 & \color[HTML]{000000}\cellcolor[HTML]{FFCC99}=afiliado.getHaberPercibido() * ModificadorAgente(afiliado)                                                                                  \\ \hline
+		\cellcolor[HTML]{FFFF99}
+		 & \cellcolor[HTML]{FFFF99}
+		 & \color[HTML]{000000}\cellcolor[HTML]{FFCC99}=error(``categoria desconocida'')                                                                                                            \\ \hline
+	\end{tabular}

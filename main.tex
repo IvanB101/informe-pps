@@ -1,0 +1,123 @@
+\documentclass[11pt,a4paper,twoside]{memoir} 
+
+\usepackage[spanish]{babel}
+
+\usepackage[bookmarks=true]{hyperref}
+
+% Agrega toc al toc
+\usepackage{tocbibind}
+
+\usepackage[acronym]{glossaries}
+\makeglossaries
+
+\input{acronyms}
+
+\usepackage[inline]{enumitem}
+
+\usepackage{caption}
+\captionsetup[listing]{name=Listado}
+
+\usepackage{cleveref}
+\crefname{listing}{listado}{listados}
+\Crefname{listing}{Listado}{Listados}
+
+\usepackage{fontspec}
+\setmonofont{MesloLGS NF}
+
+\usepackage[]{minted}
+\setminted[]{
+    breaklines,
+    breakafter=(.,
+    fontsize=\scriptsize,
+    linenos,
+    escapeinside=||,
+    frame=single,
+    rulecolor=\color{black},
+    tabsize=2,
+}
+\setmintedinline[]{
+    fontsize=\scriptsize,
+}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\usepackage{csquotes}
+\usepackage[backend=biber, style=numeric, sorting=none, bibstyle=alphabetic, maxnames=10, minnames=6,backref=true, autocite=inline, labelalpha=true, doi=false, url=false]{biblatex}
+\addbibresource{the.bib}
+% tablas
+\usepackage[margin=1in]{geometry}
+\usepackage[table,dvipsnames]{xcolor} 
+\usepackage{multirow}
+\usepackage{etoolbox}
+\usepackage{tabularx}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% Use more than one optional parameter in a new commands
+\usepackage{xargs}                      
+
+\usepackage[spanish,colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\desarrollar}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\modificar}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+% \newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+% \newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+% \newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+% \newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+
+
+\input{commands}
+
+\title{Informe PPS}
+\author{Iván Brocas}
+
+\begin{document}
+
+% \thistitle
+
+% Esta lista se borra al momento de distribuir
+% \cleardoublepage
+% \listoftodos
+% \todototoc
+
+% \cleardoublepage
+% \chapter*{Resumen}
+
+% \cleardoublepage
+%  \renewcommand{\contentsname}{Tabla de contenidos}
+% \tableofcontents
+
+\printglossary[type=\acronymtype]
+
+% 8. Selección de caso puntual para prototipar la separación de las reglas de cálculo del
+% código fuente
+% 9. Implementación de tests de verificación de correcto comportamiento de la aplicación
+% para el caso puntual.
+% 10. Implementación del cálculo para un caso puntual y verificación del correcto
+% comportamiento.
+
+\input{introduccion}
+
+\input{estructura}
+
+\input{afiliaciones}
+
+\input{arquitectura}
+
+\input{tecnologias}
+
+\input{motores}
+
+\input{relevamiento}
+
+\input{funcional}
+
+\input{reglas}
+
+\input{conclusiones}
+
+\backmatter
+
+\printbibliography
+
+\end{document}
