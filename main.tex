@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,twoside]{memoir} 
+\documentclass[11pt,a4paper,twoside]{article} 
 
 \usepackage[spanish]{babel}
 
@@ -14,30 +14,9 @@
 
 \usepackage[inline]{enumitem}
 
-\usepackage{caption}
-\captionsetup[listing]{name=Listado}
-
 \usepackage{cleveref}
 \crefname{listing}{listado}{listados}
 \Crefname{listing}{Listado}{Listados}
-
-\usepackage{fontspec}
-\setmonofont{MesloLGS NF}
-
-\usepackage[]{minted}
-\setminted[]{
-    breaklines,
-    breakafter=(.,
-    fontsize=\scriptsize,
-    linenos,
-    escapeinside=||,
-    frame=single,
-    rulecolor=\color{black},
-    tabsize=2,
-}
-\setmintedinline[]{
-    fontsize=\scriptsize,
-}
 
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
@@ -47,12 +26,6 @@
 \addbibresource{the.bib}
 % tablas
 \usepackage[margin=1in]{geometry}
-\usepackage[table,dvipsnames]{xcolor} 
-\usepackage{multirow}
-\usepackage{etoolbox}
-\usepackage{tabularx}
-\usepackage{array}
-\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 
 % Use more than one optional parameter in a new commands
 \usepackage{xargs}                      
@@ -73,15 +46,7 @@
 
 \begin{document}
 
-% \thistitle
-
-% Esta lista se borra al momento de distribuir
-% \cleardoublepage
-% \listoftodos
-% \todototoc
-
-% \cleardoublepage
-% \chapter*{Resumen}
+\thistitle
 
 % \cleardoublepage
 %  \renewcommand{\contentsname}{Tabla de contenidos}
@@ -89,34 +54,23 @@
 
 \printglossary[type=\acronymtype]
 
-% 8. Selección de caso puntual para prototipar la separación de las reglas de cálculo del
-% código fuente
-% 9. Implementación de tests de verificación de correcto comportamiento de la aplicación
-% para el caso puntual.
-% 10. Implementación del cálculo para un caso puntual y verificación del correcto
-% comportamiento.
+\input{resumen}
 
-\input{introduccion}
-
-\input{estructura}
-
-\input{afiliaciones}
-
-\input{arquitectura}
+\input{area}
 
 \input{tecnologias}
 
-\input{motores}
+\input{tareas}
 
-\input{relevamiento}
+\input{conocimientos}
 
-\input{funcional}
+% TODO: Esparcimiento. Almuerzo y colaciones: hay horario de descanso? Lugar, bufet, comedor, etc
 
-\input{reglas}
+% TODO: Higiene y Seguridad: del edificio, oficina o lugar de trabajo
 
-\input{conclusiones}
+% TODO: Términos de confidencialidad. de la empresa - empleado
 
-\backmatter
+\input
 
 \printbibliography
 
