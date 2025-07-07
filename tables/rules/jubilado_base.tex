@@ -1,0 +1,20 @@
+\makeatletter\@ifundefined{tablewidth}{\newlength{\tablewidth}}{}
+\makeatother\setlength{\tablewidth}{\dimexpr \textwidth - 2\arrayrulewidth - 4\tabcolsep \relax}
+\setlength{\extrarowheight}{-5pt}
+
+\begin{tabular}{|p{0.39\tablewidth}|p{0.61\tablewidth}|}
+\hline
+\multicolumn{2}{|C{{\dimexpr 1.0\tablewidth + 1\arrayrulewidth + 2\tabcolsep \relax}}|}{\color[HTML]{FFFFFF}\cellcolor[HTML]{000000}Rules Numero CalcularJubiladoBase(Afiliacion afiliado, Sistema sistema)}\\ \hline
+\color[HTML]{FFFFFF}\cellcolor[HTML]{CCFFFF}C1
+	& \color[HTML]{FFFFFF}\cellcolor[HTML]{CCFFFF}RET1\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{CCFFFF}haberPercibido < cuotaMinimaJubilado
+	& \cellcolor[HTML]{CCFFFF}\\ \hline
+\cellcolor[HTML]{CCFFFF}
+	& \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}Numero monto\\ \hline
+\color[HTML]{FFFFFF}\cellcolor[HTML]{FFFF99}Sub Categoria
+	& \color[HTML]{FFFFFF}\cellcolor[HTML]{FFCC99}Monto\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{FFFF99}yes
+	& \color[HTML]{FFFFFF}\cellcolor[HTML]{FFCC99}=cuotaMinimaJubilado\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{FFFF99}no
+	& \color[HTML]{FFFFFF}\cellcolor[HTML]{FFCC99}=0.07 * jubilacionMinima + 0.05 * abs(jubilacionMinima - haberPercibido)\\ \hline
+\end{tabular}

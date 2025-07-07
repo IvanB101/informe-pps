@@ -1,0 +1,144 @@
+\section{Tareas Desarrolladas}
+
+\subsubsection{Introducción a la estructura organizacional de DOSPU}
+Para esto se realizó una lectura de \cite{CSOrd17}, documento que contiene la estructura organizacional de la \acrshort{unsl}, dentro de la cual se encuentra la estructura de \acrshort{dospu}.
+
+\subsubsection{Introducción a la reglamentación de las afiliaciones de DOSPU}\label{para:afiliaciones}
+Esta reglamentación fue extraída parte de las ordenanzas publicadas en la sección de normativas de \acrshort{dospu}, en particular \cite{dospuRes21}, \cite{dospuRes71}, \cite{dospuRes31}, \cite{dospuRes43}, \cite{dospuRes7} y \cite{CSOrd53}. Este material fue complementado com ejemplos proveídos por el personal de \acrshort{dospu}.
+
+% TODO: falta o sobra alguno de los patrones?
+\subsubsection{Introducción a la arquitectura de SI-DOSPU}
+La arquitectura del \acrshort{si}-\acrshort{dospu} hace uso de varios patrones arquitectónicos, los cuales son resumidos a continuación.
+
+\paragraph{Arquitectura \acrshort{mvc}}
+Este patrón considera dos separaciones en la lódica de la aplicación, la separación entre la el modelo y la presentación y entra la presentación y el controlador \cite{fowlerPatterns}. De estas separaciones emerger tres roles:
+
+\begin{description}
+    \item[Modelo:] contiene la lógica de negocio y los datos de la aplicación. Es responsable de guardar, recuperar y actualizar los datos, así como de realizar cualquier cálculo o procesamiento necesario.
+    \item[Vista:] Este componente es lo que el usuario ve e interactúa. Se encarga de presentar la información y de recibir las entradas del usuario.
+    \item[Controlador:] Este componente maneja las interacciones del usuario y actualiza la vista en consecuencia. También es responsable de comunicarse con el modelo para recuperar o actualizar datos.
+\end{description}
+
+\paragraph{Arquitectura en Capas}
+Consiste en la división de una aplicación en distintas capas. La jerarquía formada por las capas puede ser estricta, cuando cada puede únicamente hacer uso de la capa inmediatamente por debajo de la misma o flexible, cuando una capa puede además hacer uso de las capas que están por debajo de la misma \cite{gommaModeling}.
+
+Cada capa expone su funcionalidad mediante una \acrshort{api}, permitiendo que se realicen cambios en la implementación de la misma sin causar problemas en el resto de la aplicación.
+
+\paragraph{Arquitectura de Contenedores}
+El patrón de arquitectura de contenedores es un patrón de diseño en el que los componentes de una aplicación se ejecutan en contenedores aislados, que proporcionan un entorno aislado para cada componente \cite{dockerUpRunning}. Algunas de las características importantes de este patrón son:
+\begin{itemize}
+    \item Los componentes se ejecutan en contenedores aislados.
+    \item Los contenedores proporcionan un entorno aislado para cada
+componente.
+    \item Los contenedores son similares a las máquinas virtuales, pero tienen
+un overhead menor y son más ligeros.
+    \item Los contenedores se pueden desplegar en diferentes plataformas y
+entornos.
+    \item Los contenedores se pueden escalar y actualizar de manera
+independiente.
+\end{itemize}
+
+\subsubsection{Introducción a las tecnologías del backend}
+Se realizó una lectura de la documentación de las tecnologías relacionadas, haciendo particular enfásis en las tecnologías intectúan de forma directa con la parte del código que realiza el cálculo de las cuotas, como por ejemplo Java Spring.
+
+\subsubsection{Relevamiento de motores de reglas para Java}\label{para:motores}
+Fueron relevados 5 de los motores de reglas más conocidos en el entorno de desarrollo de Java: \href{https://github.com/deliveredtechnologies/rulebook}{Rulebook}, \href{https://github.com/j-easy/easy-rules}{Easy Rules}, \href{http://alvarestech.com/temp/fuzzyjess/Jess60/Jess70b7/docs/index.html}{jess}, \href{https://www.drools.org/}{Drools} \href{https://openl-tablets.org/}{OpenL Tablets}. El relevamiento consistió en la investigación de los distintos motores, haciendo particular énfasis en los siguientes aspectos.
+
+Adicionalemente, se implementó la lógica correspondiente a un fragmento de código de ejemplo utilizando cada uno de los motores, estos ejemplos pueden encontrarse en \href{https://github.com/IvanB101/ejemplos-motores-reglas}{un respositorio en Github}.
+
+\paragraph{Gestión de las reglas.}
+¿Brinda el proyecto herramientas o mecanismos para tareas de la gestión de las reglas, como la creación, modificación, eliminación, evaluación y versionado?
+
+Estas capacidades son necesarias para cumplir con los objetivos de este trabajo, teniendo que ser implementadas en caso de no ser ofrecidas por la herramienta en cuestión.
+
+\paragraph{Integración.}
+¿Cómo puede ser el motor integrado con el sistema actual? ¿Cómo se realiza el intercambio de información entre el motor de reglas y el sistema? ¿Cuenta el motor con documentación relevante y actualizada?
+
+Restricciones en los formatos de intercambio de información entre el \acrshort{si} y el motor de reglas imponen también restricciones a la hora de realizar la integración.
+Documentación insuficiente o desactualizada resulta en un mayor tiempo requerido y propensidad a errores, siendo lo contrario cierto para documentación completa y actualizada.
+
+\paragraph{Mantenimiento.}
+¿Cuenta el proyecto con mantenedores activos? ¿Existen bugs o incompatibilidades que puedan afectar a este trabajo?
+
+\paragraph{Expresividad.}
+¿Con qué lenguaje o lenguajes permite el motor la expresión de las reglas? El o los lenguajes deben tener la expresividad suficiente para los cálculos referentes a las cuotas de la obra social.
+
+\subsubsection{Selección de motor de reglas para introducir en SI-DOSPU}
+Se realizó un análisis cualitativos de los distintos motores, evaluandolos en función de la carácteristicas mencionadas en la anteriormente (\cref{para:motores}). Como resultado de la evaluación se seleccionó OpenL Tablets.
+
+\subsubsection{Relevamiento del código fuente actual para el cálculo de la cuota de afiliación de DOSPU}
+Inicialmente, se hizo una lectura del código resposable del actual cálculo de las cuotas en el \acrshort{si}, comprobando la correcta implementación de la lógica esperada (\cref{para:afiliaciones}).
+
+Posteriormente, se realizó una refactorización del mismo, haciendo el manejo de errores más similar al manejo monádico de los mismos. Esto con la finalidad de reducir la verbosidad del manejo de errores en el código original y lograr mayor claridad en la lógica de cálculo, así como conseguir un mejor entendimiento de la funcionalidad del código.
+
+\subsubsection{Selección de caso puntual para prototipar la separación de las reglas de cálculo del código fuente}
+El caso puntual seleccionado fue el de la subcategoría voluntario jubilado de la categoría titular. Esto debido a que este representa uno de los casos más complejos dentro de los cáculos realizados.
+
+\subsubsection{Implementación de tests de verificación de correcto comportamiento de la aplicación para el caso puntual }\label{para:tests}
+Para verificar el correcto comportamiento se escribieron tests unitarios funcionales o de caja negra, utilizando una combinación de \acrfull{avl} robusto y pruebas ad hoc.
+
+Los cálculos parámetrizados acceden a varios campos numéricos, como el haber percibido y valores de referencias, como la jubilación mínima, estos valores están representados con \code{BigDecimal}, que son decimales de precisión arbitraria. Adicionalmente, la validación de estos parámetros se realiza en la carga de los mismos y, por tanto, para los tests de los cálculos de las cuotas se utilizan solamente valores válidos.
+
+Por otra parte, para la edad de los afiliados se utiliza el \acrshort{avl} robusto, dado que el cambio en la edad de un afiliado puede resultar en la inválidez de la categoría en la que encontraba, error que debe ser detectado.
+
+Luego se utilizan pruebas ad hoc para casos como el de una dependencia de pago o haber percibido faltantes, casos que no presentan una estructura para el uso de \acrshort{avl}.
+
+\subsubsection{Implementación del cálculo para un caso puntual y verificación del correcto comportamiento}
+Antes de la implementación de las reglas utilizando el motor de reglas, se extrajo el código correspondiente a las mismas a una implementación de un servicio (\code{CalculoCuotaService}). Este servicio posee un único método, el cual cuenta con los parámetros y tipo de retorno correspondientes con el cálculo de la cuota de afiliados.
+
+\begin{table}[!h]
+    \label{tab:regla_principal}
+    \centering
+    \input{tables/rules/entry}
+    \caption{Regla principal}
+\end{table}
+
+\begin{table}[!h]
+    \label{tab:regla_base}
+    \centering
+    \input{tables/rules/base}
+    \caption{Calculo cuota base}
+\end{table}
+
+\begin{table}[!h]
+    \label{tab:regla_titular}
+    \centering
+    \input{tables/rules/titular}
+    \caption{Regla titular}
+\end{table}
+
+\begin{table}[!h]
+    \label{tab:regla_jubilado}
+    \centering
+    \input{tables/rules/jubilado}
+    \caption{Regla jubilado cuota base}
+\end{table}
+
+\begin{table}[!h]
+    \label{tab:regla_sin_conyuge}
+    \centering
+    \input{tables/rules/sin_conyuge}
+    \caption{Regla jubilado sin cónyuge en el sistema} 
+\end{table}
+
+\begin{table}[!h]
+    \label{tab:regla_conyuge}
+    \centering
+    \input{tables/rules/conyuge}
+    \caption{Regla jubilado con cónyuge}
+\end{table}
+
+\begin{table}[!h]
+    \label{tab:regla_conyuge_titular}
+    \centering
+    \input{tables/rules/conyuge_titular}
+    \caption{Regla jubilado con cónyuge titular}
+\end{table}
+
+Las tablas (\cref{tab:regla_principal}, \cref{tab:regla_base}, \cref{tab:regla_titular}, \cref{tab:regla_jubilado}, \cref{tab:regla_sin_conyuge}, \cref{tab:regla_conyuge} y \cref{tab:regla_conyuge_titular}) corresponden a la representación de las reglas entendida por OpenL tablets. Como se puede ver en las mismas, también se incluye el cálculo de los pensionados, ya que la misma fórmula base es aplicada a los mismos.
+
+Por otro lado, estas reglas son llamadas desde otra implementación de (\code{CalculoCuotaService}), pudiendose cambiar entre las implementaciones por medio de los perfiles de Spring. Además de este servicio, se programaron las clases \code{Afiliacion}, \code{Sistema} y \code{Numero}, que permiten ocultar en las reglas detalles del funcionamiento interno del sistema, como las llamadas u otros servicios, presentando dichas llamadas como accesos a campos.
+
+Para la verificación del correcto comportamiento se utilizaron las pruebas escritas previamente (\cref{para:tests}).
+
+Con esta representación de las reglas, cambios a las mismas pueden ser logrados mediante cambios a las definciones almacenadas en un documento excel, no requeriendo la recompilación del sistema completo que los cambios entre en efecto.

@@ -1,0 +1,24 @@
+\makeatletter\@ifundefined{tablewidth}{\newlength{\tablewidth}}{}
+\makeatother\setlength{\tablewidth}{\dimexpr \textwidth - 2\arrayrulewidth - 4\tabcolsep \relax}
+\setlength{\extrarowheight}{-5pt}
+
+\begin{tabular}{|p{0.48\tablewidth}|p{0.52\tablewidth}|}
+\hline
+\multicolumn{2}{|C{{\dimexpr 1.0\tablewidth + 1\arrayrulewidth + 2\tabcolsep \relax}}|}{\color[HTML]{FFFFFF}\cellcolor[HTML]{000000}Rules Numero CalcularTitular(Afiliacion afiliado, Sistema sistema)}\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{CCFFFF}C2
+	& \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}RET1\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{CCFFFF}Subcategoria
+	& \cellcolor[HTML]{CCFFFF}\\ \hline
+\cellcolor[HTML]{CCFFFF}
+	& \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}Numero monto\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{FFFF99}Sub Categoria
+	& \color[HTML]{000000}\cellcolor[HTML]{FFB66C}Monto\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{FFFF99}subcategoria-afiliacion-obligatorio-activo
+	& \color[HTML]{000000}\cellcolor[HTML]{FFB66C}=error(``14111'')\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{FFFF99}subcategoria-afiliacion-pensionado
+	& \cellcolor[HTML]{FFB66C}\strut \\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{FFFF99}subcategoria-afiliacion-voluntario-jubilado
+	& \multirow{-2}{0.52\tablewidth}{\color[HTML]{000000}\cellcolor[HTML]{FFB66C}=CalcularJubilado(afiliado, sistema)}\\ \hline
+\cellcolor[HTML]{FFFF99}
+	& \color[HTML]{000000}\cellcolor[HTML]{FFB66C}=error(``9606'')\\ \hline
+\end{tabular}

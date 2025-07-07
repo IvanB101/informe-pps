@@ -1,0 +1,13 @@
+\makeatletter\@ifundefined{tablewidth}{\newlength{\tablewidth}}{}
+\makeatother\setlength{\tablewidth}{\dimexpr \textwidth - 2\arrayrulewidth - 4\tabcolsep \relax}
+\setlength{\extrarowheight}{-5pt}
+
+\begin{tabular}{|p{0.50\tablewidth}|p{0.50\tablewidth}|}
+\hline
+\multicolumn{2}{|C{{\dimexpr 1.0\tablewidth + 1\arrayrulewidth + 2\tabcolsep \relax}}|}{\color[HTML]{FFFFFF}\cellcolor[HTML]{000000}Rules Numero CalcularCuota(Afiliacion afiliado, Sistema sistema)}\\ \hline
+\multicolumn{2}{|C{{\dimexpr 1.0\tablewidth + 1\arrayrulewidth + 2\tabcolsep \relax}}|}{\color[HTML]{000000}\cellcolor[HTML]{CCFFFF}RET1}\\ \hline
+\multicolumn{2}{|C{{\dimexpr 1.0\tablewidth + 1\arrayrulewidth + 2\tabcolsep \relax}}|}{\color[HTML]{000000}\cellcolor[HTML]{CCFFFF}monto}\\ \hline
+\multicolumn{2}{|C{{\dimexpr 1.0\tablewidth + 1\arrayrulewidth + 2\tabcolsep \relax}}|}{\color[HTML]{000000}\cellcolor[HTML]{CCFFFF}Numero monto}\\ \hline
+\multicolumn{2}{|C{{\dimexpr 1.0\tablewidth + 1\arrayrulewidth + 2\tabcolsep \relax}}|}{\color[HTML]{000000}\cellcolor[HTML]{FFB66C}Monto}\\ \hline
+\multicolumn{2}{|C{{\dimexpr 1.0\tablewidth + 1\arrayrulewidth + 2\tabcolsep \relax}}|}{\color[HTML]{000000}\cellcolor[HTML]{FFB66C}=(CalcularCuotaBase(afiliado, sistema) + montoPorSeguros) * modificadorPorEnfermedad}\\ \hline
+\end{tabular}

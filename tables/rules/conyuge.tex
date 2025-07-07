@@ -1,0 +1,32 @@
+\makeatletter\@ifundefined{tablewidth}{\newlength{\tablewidth}}{}
+\makeatother\setlength{\tablewidth}{\dimexpr \textwidth - 4\arrayrulewidth - 8\tabcolsep \relax}
+\setlength{\extrarowheight}{-5pt}
+
+\begin{tabular}{|p{0.18\tablewidth}|p{0.19\tablewidth}|p{0.16\tablewidth}|p{0.47\tablewidth}|}
+\hline
+\multicolumn{4}{|C{{\dimexpr 1.0\tablewidth + 3\arrayrulewidth + 6\tabcolsep \relax}}|}{\color[HTML]{FFFFFF}\cellcolor[HTML]{000000}Rules Numero CalcularJubiladoConConyuge(Afiliacion afiliado, Sistema sistema)}\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{CCFFFF}C1
+	& \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}C2
+	& \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}C3
+	& \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}RET1\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{CCFFFF}conyuge\allowbreak O\allowbreak Conviviente\allowbreak .subCategoria
+	& \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}conyuge\allowbreak O\allowbreak Conviviente\allowbreak .estaHabilitado || conyugeOConviviente\allowbreak .estaMoroso
+	& \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}conyuge\allowbreak O\allowbreak Conviviente\allowbreak .esResponsable\allowbreak DePago
+	& \cellcolor[HTML]{CCFFFF}\\ \hline
+\cellcolor[HTML]{CCFFFF}
+	& \cellcolor[HTML]{CCFFFF}
+	& \cellcolor[HTML]{CCFFFF}
+	& \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}Numero monto\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{FFFF99}Categoría Conyuge
+	& \color[HTML]{000000}\cellcolor[HTML]{FFFF99}Conyuge está habilitado o moroso
+	& \color[HTML]{000000}\cellcolor[HTML]{FFFF99}Conyuge es responsable de pago
+	& \color[HTML]{000000}\cellcolor[HTML]{FFB66C}Monto\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{FFFF99}subcategoria-afiliacion-voluntario-jubilado
+	& \color[HTML]{000000}\cellcolor[HTML]{FFFF99}yes
+	& \color[HTML]{000000}\cellcolor[HTML]{FFFF99}yes
+	& \color[HTML]{000000}\cellcolor[HTML]{FFB66C}=Calcular\allowbreak Jubilado\allowbreak ConConyuge\allowbreak Responsable\allowbreak Pago(afiliado, sistema)\\ \hline
+\cellcolor[HTML]{FFFF99}
+	& \cellcolor[HTML]{FFFF99}
+	& \cellcolor[HTML]{FFFF99}
+	& \color[HTML]{000000}\cellcolor[HTML]{FFB66C}=CalcularJubiladoBase(afiliado, sistema)\\ \hline
+\end{tabular}

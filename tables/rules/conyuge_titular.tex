@@ -1,0 +1,20 @@
+\makeatletter\@ifundefined{tablewidth}{\newlength{\tablewidth}}{}
+\makeatother\setlength{\tablewidth}{\dimexpr \textwidth - 2\arrayrulewidth - 4\tabcolsep \relax}
+\setlength{\extrarowheight}{-5pt}
+
+\begin{tabular}{|p{0.40\tablewidth}|p{0.60\tablewidth}|}
+\hline
+\multicolumn{2}{|C{{\dimexpr 1.0\tablewidth + 1\arrayrulewidth + 2\tabcolsep \relax}}|}{\color[HTML]{FFFFFF}\cellcolor[HTML]{000000}Rules Numero CalcularJubiladoConConyugeResponsablePago(Afiliacion afiliado, Sistema sistema)}\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{CCFFFF}C1
+	& \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}RET1\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{CCFFFF}conyugeOConviviente.haberPercibido > haberPercibido
+	& \cellcolor[HTML]{CCFFFF}\\ \hline
+\cellcolor[HTML]{CCFFFF}
+	& \color[HTML]{000000}\cellcolor[HTML]{CCFFFF}Numero monto\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{FFFF99}Conyuge con mayor haber percibido
+	& \color[HTML]{000000}\cellcolor[HTML]{FFB66C}Monto\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{FFFF99}no
+	& \color[HTML]{000000}\cellcolor[HTML]{FFB66C}=CalcularJubiladoBase(afiliado, sistema)\\ \hline
+\color[HTML]{000000}\cellcolor[HTML]{FFFF99}yes
+	& \color[HTML]{000000}\cellcolor[HTML]{FFB66C}=CalcularJubiladoBase(afiliado, sistema) * 0.7\\ \hline
+\end{tabular}
