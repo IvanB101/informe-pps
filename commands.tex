@@ -22,7 +22,11 @@
 
 \newcommand{\code}[1]{{\small\texttt{#1}}}
 
-% para acrónimos provenientes del inglés
-\newcommand{\acrcomplete}[1]{
-	\acrlong{#1} (\glsentrydesc{#1}, \acrshort{#1})
+\let\originalacrfull\acrfull
+\RenewDocumentCommand{\acrfull}{m}{%
+  \ifglshasfield{user1}{#1}{%
+    \glsentrylong{#1} (\glsentryuseri{#1}, \glsentryshort{#1})%
+  }{%
+    \originalacrfull{#1}%
+  }%
 }
