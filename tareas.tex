@@ -1,13 +1,15 @@
 \section{Tareas Desarrolladas}
 
-\subsubsection{Introducción a la estructura organizacional de DOSPU}
+En esta sección se describe brevemente el desarrollo de cada una de las tareas planificadas.
+
+\subsection{Introducción a la estructura organizacional de DOSPU}
 Para esto se realizó una lectura de \cite{CSOrd17}, documento que contiene la estructura organizacional de la \acrshort{unsl}, dentro de la cual se encuentra la estructura de \acrshort{dospu}.
 
-\subsubsection{Introducción a la reglamentación de las afiliaciones de DOSPU}\label{para:afiliaciones}
+\subsection{Introducción a la reglamentación de las afiliaciones de DOSPU}\label{para:afiliaciones}
 Esta reglamentación fue extraída parte de las ordenanzas publicadas en la sección de normativas de \acrshort{dospu}, en particular \cite{dospuRes21}, \cite{dospuRes71}, \cite{dospuRes31}, \cite{dospuRes43}, \cite{dospuRes7} y \cite{CSOrd53}. Este material fue complementado com ejemplos proveídos por el personal de \acrshort{dospu}.
 
 % TODO: falta o sobra alguno de los patrones?
-\subsubsection{Introducción a la arquitectura de SI-DOSPU}
+\subsection{Introducción a la arquitectura de SI-DOSPU}
 La arquitectura del \acrshort{si}-\acrshort{dospu} hace uso de varios patrones arquitectónicos, los cuales son resumidos a continuación.
 
 \paragraph{Arquitectura \acrshort{mvc}}
@@ -38,10 +40,10 @@ entornos.
 independiente.
 \end{itemize}
 
-\subsubsection{Introducción a las tecnologías del backend}
+\subsection{Introducción a las tecnologías del backend}
 Se realizó una lectura de la documentación de las tecnologías relacionadas, haciendo particular enfásis en las tecnologías intectúan de forma directa con la parte del código que realiza el cálculo de las cuotas, como por ejemplo Java Spring.
 
-\subsubsection{Relevamiento de motores de reglas para Java}\label{para:motores}
+\subsection{Relevamiento de motores de reglas para Java}\label{para:motores}
 Fueron relevados 5 de los motores de reglas más conocidos en el entorno de desarrollo de Java: \href{https://github.com/deliveredtechnologies/rulebook}{Rulebook}, \href{https://github.com/j-easy/easy-rules}{Easy Rules}, \href{http://alvarestech.com/temp/fuzzyjess/Jess60/Jess70b7/docs/index.html}{jess}, \href{https://www.drools.org/}{Drools} \href{https://openl-tablets.org/}{OpenL Tablets}. El relevamiento consistió en la investigación de los distintos motores, haciendo particular énfasis en los siguientes aspectos.
 
 Adicionalemente, se implementó la lógica correspondiente a un fragmento de código de ejemplo utilizando cada uno de los motores, estos ejemplos pueden encontrarse en \href{https://github.com/IvanB101/ejemplos-motores-reglas}{un respositorio en Github}.
@@ -63,18 +65,18 @@ Documentación insuficiente o desactualizada resulta en un mayor tiempo requerid
 \paragraph{Expresividad.}
 ¿Con qué lenguaje o lenguajes permite el motor la expresión de las reglas? El o los lenguajes deben tener la expresividad suficiente para los cálculos referentes a las cuotas de la obra social.
 
-\subsubsection{Selección de motor de reglas para introducir en SI-DOSPU}
+\subsection{Selección de motor de reglas para introducir en SI-DOSPU}
 Se realizó un análisis cualitativos de los distintos motores, evaluandolos en función de la carácteristicas mencionadas en la anteriormente (\cref{para:motores}). Como resultado de la evaluación se seleccionó OpenL Tablets.
 
-\subsubsection{Relevamiento del código fuente actual para el cálculo de la cuota de afiliación de DOSPU}
-Inicialmente, se hizo una lectura del código resposable del actual cálculo de las cuotas en el \acrshort{si}, comprobando la correcta implementación de la lógica esperada (\cref{para:afiliaciones}).
+\subsection{Relevamiento del código fuente actual para el cálculo de la cuota de afiliación de DOSPU}
+Inicialmente, se hizo una lectura del código responsable del actual cálculo de las cuotas en el \acrshort{si}, comprobando la correcta implementación de la lógica esperada (\cref{para:afiliaciones}).
 
 Posteriormente, se realizó una refactorización del mismo, haciendo el manejo de errores más similar al manejo monádico de los mismos. Esto con la finalidad de reducir la verbosidad del manejo de errores en el código original y lograr mayor claridad en la lógica de cálculo, así como conseguir un mejor entendimiento de la funcionalidad del código.
 
-\subsubsection{Selección de caso puntual para prototipar la separación de las reglas de cálculo del código fuente}
+\subsection{Selección de caso puntual para prototipar la separación de las reglas de cálculo del código fuente}
 El caso puntual seleccionado fue el de la subcategoría voluntario jubilado de la categoría titular. Esto debido a que este representa uno de los casos más complejos dentro de los cáculos realizados.
 
-\subsubsection{Implementación de tests de verificación de correcto comportamiento de la aplicación para el caso puntual }\label{para:tests}
+\subsection{Implementación de tests de verificación de correcto comportamiento de la aplicación para el caso puntual }\label{para:tests}
 Para verificar el correcto comportamiento se escribieron tests unitarios funcionales o de caja negra, utilizando una combinación de \acrfull{avl} robusto y pruebas ad hoc.
 
 Los cálculos parámetrizados acceden a varios campos numéricos, como el haber percibido y valores de referencias, como la jubilación mínima, estos valores están representados con \code{BigDecimal}, que son decimales de precisión arbitraria. Adicionalmente, la validación de estos parámetros se realiza en la carga de los mismos y, por tanto, para los tests de los cálculos de las cuotas se utilizan solamente valores válidos.
@@ -83,7 +85,7 @@ Por otra parte, para la edad de los afiliados se utiliza el \acrshort{avl} robus
 
 Luego se utilizan pruebas ad hoc para casos como el de una dependencia de pago o haber percibido faltantes, casos que no presentan una estructura para el uso de \acrshort{avl}.
 
-\subsubsection{Implementación del cálculo para un caso puntual y verificación del correcto comportamiento}
+\subsection{Implementación del cálculo para un caso puntual y verificación del correcto comportamiento}
 Antes de la implementación de las reglas utilizando el motor de reglas, se extrajo el código correspondiente a las mismas a una implementación de un servicio (\code{CalculoCuotaService}). Este servicio posee un único método, el cual cuenta con los parámetros y tipo de retorno correspondientes con el cálculo de la cuota de afiliados.
 
 \begin{table}[!h]
