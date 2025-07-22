@@ -88,58 +88,60 @@ Luego se utilizan pruebas ad hoc para casos como el de una dependencia de pago o
 \subsection{Implementación del cálculo para un caso puntual y verificación del correcto comportamiento}
 Antes de la implementación de las reglas utilizando el motor de reglas, se extrajo el código correspondiente a las mismas a una implementación de un servicio (\code{CalculoCuotaService}). Este servicio posee un único método, el cual cuenta con los parámetros y tipo de retorno correspondientes con el cálculo de la cuota de afiliados.
 
-\begin{table}[!h]
-    \centering
-    \input{tables/rules/entry}
-    \caption{Regla principal}
-    \label{tab:regla_principal}
-\end{table}
+% \begin{table}[!h]
+%     \centering
+%     \input{tables/rules/entry}
+%     \caption{Regla principal}
+%     \label{tab:regla_principal}
+% \end{table}
 
-\begin{table}[!h]
-    \centering
-    \input{tables/rules/base}
-    \caption{Calculo cuota base}
-    \label{tab:regla_base}
-\end{table}
+% \begin{table}[!h]
+%     \centering
+%     \input{tables/rules/base}
+%     \caption{Calculo cuota base}
+%     \label{tab:regla_base}
+% \end{table}
 
-\begin{table}[!h]
-    \centering
-    \input{tables/rules/titular}
-    \caption{Regla titular}
-    \label{tab:regla_titular}
-\end{table}
+% \begin{table}[!h]
+%     \centering
+%     \input{tables/rules/titular}
+%     \caption{Regla titular}
+%     \label{tab:regla_titular}
+% \end{table}
 
-\begin{table}[!h]
-    \centering
-    \input{tables/rules/jubilado}
-    \caption{Regla jubilado cuota base}
-    \label{tab:regla_jubilado}
-\end{table}
+% \begin{table}[!h]
+%     \centering
+%     \input{tables/rules/jubilado}
+%     \caption{Regla jubilado cuota base}
+%     \label{tab:regla_jubilado}
+% \end{table}
 
-\begin{table}[!h]
-    \centering
-    \input{tables/rules/sin_conyuge}
-    \caption{Regla jubilado sin cónyuge en el sistema} 
-    \label{tab:regla_sin_conyuge}
-\end{table}
+% \begin{table}[!h]
+%     \centering
+%     \input{tables/rules/sin_conyuge}
+%     \caption{Regla jubilado sin cónyuge en el sistema} 
+%     \label{tab:regla_sin_conyuge}
+% \end{table}
 
-\begin{table}[!h]
-    \centering
-    \input{tables/rules/conyuge}
-    \caption{Regla jubilado con cónyuge}
-    \label{tab:regla_conyuge}
-\end{table}
+% \begin{table}[!h]
+%     \centering
+%     \input{tables/rules/conyuge}
+%     \caption{Regla jubilado con cónyuge}
+%     \label{tab:regla_conyuge}
+% \end{table}
 
-\begin{table}[!h]
-    \centering
-    \input{tables/rules/conyuge_titular}
-    \caption{Regla jubilado con cónyuge titular}
-    \label{tab:regla_conyuge_titular}
-\end{table}
+% \begin{table}[!h]
+%     \centering
+%     \input{tables/rules/conyuge_titular}
+%     \caption{Regla jubilado con cónyuge titular}
+%     \label{tab:regla_conyuge_titular}
+% \end{table}
 
-Las tablas (\cref{tab:regla_principal}, \cref{tab:regla_base}, \cref{tab:regla_titular}, \cref{tab:regla_jubilado}, \cref{tab:regla_sin_conyuge}, \cref{tab:regla_conyuge} y \cref{tab:regla_conyuge_titular}) corresponden a la representación de las reglas entendida por OpenL tablets. Como se puede ver en las mismas, también se incluye el cálculo de los pensionados, ya que la misma fórmula base es aplicada a los mismos.
+% Las tablas (\cref{tab:regla_principal}, \cref{tab:regla_base}, \cref{tab:regla_titular}, \cref{tab:regla_jubilado}, \cref{tab:regla_sin_conyuge}, \cref{tab:regla_conyuge} y \cref{tab:regla_conyuge_titular}) corresponden a la representación de las reglas entendida por OpenL tablets. Como se puede ver en las mismas, también se incluye el cálculo de los pensionados, ya que la misma fórmula base es aplicada a los mismos.
 
-Por otro lado, estas reglas son llamadas desde otra implementación de (\code{CalculoCuotaService}), pudiendose cambiar entre las implementaciones por medio de los perfiles de Spring. Además de este servicio, se programaron las clases \code{Afiliacion}, \code{Sistema} y \code{Numero}, que permiten ocultar en las reglas detalles del funcionamiento interno del sistema, como las llamadas u otros servicios, presentando dichas llamadas como accesos a campos.
+Las reglas de cálculo para la cuota de pensionados, tomado como ejemplo por su complejidad, se representó utilizando OpenL tablets. 
+%
+Estas reglas son llamadas desde otra implementación de (\code{CalculoCuotaService}), pudiéndose cambiar entre las implementaciones por medio de los perfiles de Spring. Además de este servicio, se programaron las clases \code{Afiliacion}, \code{Sistema} y \code{Numero}, que permiten ocultar en las reglas detalles del funcionamiento interno del sistema, como las llamadas u otros servicios, presentando dichas llamadas como accesos a campos.
 
 Para la verificación del correcto comportamiento se utilizaron las pruebas escritas previamente (\cref{para:tests}).
 
